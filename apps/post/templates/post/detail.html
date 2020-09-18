@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    <head>
+        <title> Blogsite </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width-device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>
+            {{ post.title }}
+        </h1>
+        <a href="{% url 'user:profile' post.author %}">
+            {{ post.author }}
+        </a>
+        <p>
+            {{ post.text }}
+        </p>
+    </body>
+</html>

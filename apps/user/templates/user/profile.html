@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    <head>
+        <title> Blogsite </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width-devive-width, inital-scale=1" />
+    </head>
+    <body>
+        <p> This is the profile of user: {{ user }}, their favourite color is: {{ user.favourite_color }} </p>
+        <p> Last time they edited their Profile: {{ user.modified }} </p>
+        <p> Written Articles by User {{ user }}: </p>
+        {% for post in posts %}
+            <h3> {{ post.title }} </h3>
+            <a href="{% url 'post:detail' post.id %}">
+                Detailansicht
+            </a>
+        {% endfor %}
+    </body>
+</html>

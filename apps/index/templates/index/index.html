@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <head>
+        <title> Blogsite </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width-devive-width, inital-scale=1" />
+    </head>
+    <body>
+        {% for post in post_list %}
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.exposee }}</p>
+            <p> Published: {{ post.publish_date }} </p>
+            <p> Last Edited: {{ post.modified }} </p>
+            <a href="{% url 'post:detail' post.id %}">
+                Detailansicht
+            </a> </br>
+            <a href="{% url 'user:profile' post.author %}">
+                {{ post.author }}
+            </a>
+        {% endfor %}
+    </body>
+</html>
