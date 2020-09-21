@@ -4,8 +4,8 @@ from django.views import generic
 from apps.post.models import Post
 # Create your views here.
 
-class IndexView(generic.ListView):
+class HomeView(generic.ListView):
     model = Post
-    template_name = 'index/index.html'
+    template_name = 'page/home.html'
     context_object_name = 'post_list'
     queryset = Post.objects.all()
