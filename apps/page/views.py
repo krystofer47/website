@@ -7,5 +7,6 @@ from apps.post.models import Post
 class HomeView(generic.ListView):
     model = Post
     template_name = 'page/home.html'
-    context_object_name = 'post_list'
+    context_object_name = 'posts'
     queryset = Post.objects.all()
+

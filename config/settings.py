@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'apps.page',
     'apps.post',
     'apps.user',
+    'colorfield',
     'django_sass',
     'django.contrib.admin',
     'django.contrib.auth',

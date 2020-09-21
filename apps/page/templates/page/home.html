@@ -1,18 +1,22 @@
+{% load render_post %}
+{% load static %}
 {% include "base/header.html" %}
 
-<link href="static/page/css/style.css" rel="stylesheet" />
+{% comment %} Load css for this html file {% endcomment %}
+<link href="{% static 'page/css/style.css' %}" rel="stylesheet" />
 
-    {% for post in post_list %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.exposee }}</p>
-        <p> Published: {{ post.publish_date }} </p>
-        <p> Last Edited: {{ post.modified }} </p>
-        <a href="{% url 'post:detail' post.id %}">
-            Detailansicht
-        </a> </br>
-        <a href="{% url 'user:profile' post.author %}">
-            {{ post.author }}
-        </a>
-    {% endfor %}
+{% comment %} Load css for the shown Posts {% endcomment %}
+<link href="{% static 'post/css/post_export.css' %}" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-lg-8">
+        {% comment %} Load all the posts {% endcomment %}
+        {% for post in posts %}
+            {% render_post post %}
+        {% endfor %}
+    </div>
+    <div class="col-md-4" style="background-color: lightblue">
+    </div>
+</div>
 
 {% include "base/footer.html" %}
