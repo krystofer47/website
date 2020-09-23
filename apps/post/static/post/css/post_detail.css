@@ -1,0 +1,11 @@
+.full-width-image {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  max-height: 500px;
+}
+
+.full-width-image img {
+  width: 100%;
+}

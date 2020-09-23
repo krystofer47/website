@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-    <head>
-        <title> Blogsite </title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width-device-width, initial-scale=1" />
-    </head>
-    <body>
-        <h1>
-            {{ post.title }}
-        </h1>
-        <a href="{% url 'user:profile' post.author %}">
-            {{ post.author }}
-        </a>
-        <p>
-            {{ post.text }}
-        </p>
-    </body>
-</html>
+{% load static %}
+{% load render_tag %}
+{% include "base/header.html" with in_post=True %}
+
+<link href={% static 'post/css/post_detail.css' %} rel="stylesheet" />
+{% if post.image %}
+    <img src="{{ post.image.url }}" class="full-width-image" /> 
+{% endif %}
+
+<h2>{{ post.title }}</h2>
+
+<p class="font-weight-light"> Verfasst von <a href="{% url 'user:profile' post.author %}">
+    {{ post.author }}
+    </a> unter {% for tag in post.tags.all %} {% render_tag tag %} {% endfor %}
+<p class="font-weight-light"> Veröffentlicht: {{ post.publish_date }} Bearbeitet: {{ post.modified }} </p>
+
+<p>
+    {{ post.text|safe }}
+</p>

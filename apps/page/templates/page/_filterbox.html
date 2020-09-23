@@ -1,0 +1,24 @@
+{% comment %} Maybe this should be its own app? {% endcomment %}
+{% load render_tag %}
+{% load static %}
+
+<div class="card my-4 filter-box">
+    <script type="text/javascript" src={% static 'page/js/filterbox.js' %} defer></script>
+    <h5 class="card-header"> Kategorien </h5>
+    <div class="card-body">
+        Filter
+        <div class="d-flex align-content-center">
+            <div id="filter">
+                {% for tag in f_tags %}
+                    {% render_tag tag %}
+                {% endfor %}
+            </div>
+        </div>
+        Kategorien
+        <div id="tags">
+            {% for tag in tags %}
+                {% render_tag tag %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

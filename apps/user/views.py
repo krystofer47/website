@@ -14,5 +14,5 @@ class ProfilView(generic.TemplateView):
          user = kwargs.get('user')
          context = super().get_context_data(**kwargs)
          context['user'] =  Profile.objects.get(user = User.objects.get(username = user))
-         context['posts'] = Post.objects.filter(author = User.objects.get(username = user))[:5]
+         context['posts'] = Post.objects.filter(author = User.objects.get(username = user))
          return context
