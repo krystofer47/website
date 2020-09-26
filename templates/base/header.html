@@ -2,51 +2,59 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title> Blogsite </title>
+        <title> Christoph Brosch </title>
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width-devive-width, inital-scale=1" />
 
-        <link href="{% static 'base/css/main.css' %}" rel="stylesheet" />
-        <link href="{% static 'base/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
-
+        <link rel="stylesheet" href="{% static 'base/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'base/vendor/bootstrap/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     </head>
     <body>
         <header>
             <!-- Navigation -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
                 <div class="container">
-                    <a class="navbar-brand" href="{% url 'page:home' %}">Start Bootstrap</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <a class="navbar-brand" href="{% url 'page:home' %}">Logo</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        {% if in_post %}
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item active">
-                            <a class="nav-link" href="#">Post
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        {% else %}
-                            <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        {% endif %}
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                        </li>
-                    </ul>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            {% if in_home %}
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'page:home' %}">Home </a>
+                                    <span class="sr-only">(current)</span>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'page:home' %}">Home</a>
+                                </li>
+                            {% endif %}
+                            {% if in_about %}
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'page:about' %}">About</a>
+                                    <span class="sr-only">(current)</span>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'page:about' %}">About</a>
+                                </li>
+                            {% endif %}
+                            {% if in_contact %}
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'page:contact' %}">Contact</a>
+                                    <span class="sr-only">(current)</span>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'page:contact' %}">Contact</a>
+                                </li>
+                            {% endif %}
+                        </ul>
                     </div>
                 </div>
             </nav>

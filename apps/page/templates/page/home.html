@@ -1,23 +1,26 @@
 {% load render_post %}
 
 {% load static %}
-{% include "base/header.html" %}
+{% include "base/header.html" with in_home=True %}
 
 {% comment %} Load css for this html file {% endcomment %}
-<link href="{% static 'page/css/main.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'page/css/main.css' %}" />
 
 {% comment %} Load css for the shown Posts {% endcomment %}
-<link href="{% static 'post/css/post_export.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'post/css/post_export.css' %}" />
 
-<div class="row">
+<div class="row my-4">
     <div class="col-lg-8" id="posts">
         {% comment %} Load all the posts {% endcomment %}
+        {% if posts %}{% endif %}
         {% for post in posts %}
             {% render_post post %}
+        {% empty %}
+            Keine Einträge gefunden
         {% endfor %}
         <div class="d-flex justify-content-around" id="page_navigation">
             {% if f_tags != None %}
-                <a href="{% url 'page:page' page|add:'-1' %}?filter={{f_tags|first}}"> 
+                <a href="{% url 'page:page' page|add:'-1' %}?filter={{f_tags_str}}"> 
             {% else %}
                 <a href="{% url 'page:page' page|add:'-1' %}">
             {% endif %} 
@@ -25,7 +28,7 @@
             </a>
             {{ page }}
             {% if f_tags != None %}
-                <a href="{% url 'page:page' page|add:'1' %}?filter={{f_tags|first}}"> 
+                <a href="{% url 'page:page' page|add:'1' %}?filter={{f_tags_str}}"> 
             {% else %}
                 <a href="{% url 'page:page' page|add:'1' %}">
             {% endif %} 
@@ -34,9 +37,7 @@
         </div>
     </div>
     <div class="col-lg-4">
-    
         {% include "page/_filterbox.html" %}
-
     </div>
 </div>
 

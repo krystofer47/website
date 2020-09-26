@@ -1,6 +1,6 @@
 {% load static %}
 {% load render_tag %}
-{% include "base/header.html" with in_post=True %}
+{% include "base/header.html"%}
 
 <link href={% static 'post/css/post_detail.css' %} rel="stylesheet" />
 {% if post.image %}
@@ -17,3 +17,5 @@
 <p>
     {{ post.text|safe }}
 </p>
+
+{% include 'base/footer.html' %}

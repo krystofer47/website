@@ -1,0 +1,23 @@
+{% load static %}
+{% include "base/header.html" with in_about=True %}
+
+<div class="d-flex flex-row row align-items-center" style="min-height: calc(100vh - 50px)">
+    <div class="col-lg-8 col-md-6 my-auto" id="in_text">
+        <h1>
+        About me:
+        </h1>
+        <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+        </p>
+        <p>
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+    </div>
+    <div class="col-lg-4 col-md-6 d-none d-md-block" id="picture">
+        <img src="{% static 'page/img/portrait.jpg' %}" class="w-100 my-auto">
+    </div>
+</div>
+
+<script src="{% static 'page/vendor/githubcards/widget.min.js' %}"></script>
+
+{% include "base/footer.html" %}

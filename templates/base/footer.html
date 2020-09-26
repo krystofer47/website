@@ -1,10 +1,45 @@
 {% load static %}
     </main>
-        <footer>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row py-3">
+                    <div class="col-12 col-md-6 col-lg-8 my-auto" style="width: auto !important;">
+                       <ul id="legal-list" class="align-items-center">
+                            <li>
+                                <a href="{% url 'page:privacy' %}">Datenschutz</a>
+                            </li>
+                            <li>
+                                <a href="#">Impressum</a>
+                            </li>
+                       </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 my-auto order-first order-md-last pb-4 pb-md-0">
+                        <ul id="social-list">
+                            <li>
+                                <a href="https://github.com/krystofer47" target="_blank" class="btn-social btn-github"><i class="fa fa-github"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitch.tv/Rahon" target="_blank" class="btn-social btn-twitch"><i class="fa fa-twitch"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/Rahon96" target="_blank" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://youtube.com/Rahon" target="_blank" class="btn-social btn-youtube"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Copyright -->
+                <div class="copyright text-center py-2">© {% now "Y" %} Copyright:
+                    <a href="">Christoph Brosch</a>
+                </div>
+                <!-- Copyright -->
+            </div>
         </footer>
 
         <script src="{% static 'base/vendor/jquery/jquery.min.js' %}"></script>
-        <script ref="{% static 'base/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-        
+        <script src="{% static 'base/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
     </body>
 </html>
